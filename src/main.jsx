@@ -7,6 +7,9 @@ import ErrorPage from "./ErrorPage";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import AllTouristSpot from "./Components/AllTouristSpot";
+import AddTouristSpot from "./Components/AddTouristSpot";
+import MyList from "./Components/MyList";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/allTouristSpot",
+        element: <AllTouristSpot></AllTouristSpot>,
+      },
+      {
+        path: "/addTouristSpot",
+        element: <AddTouristSpot></AddTouristSpot>,
+      },
+      {
+        path: "/myList",
+        element: <MyList></MyList>,
       },
     ],
   },
