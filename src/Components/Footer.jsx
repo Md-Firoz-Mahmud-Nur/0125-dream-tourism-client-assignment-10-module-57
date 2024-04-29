@@ -13,16 +13,16 @@ const Footer = () => {
           <image href="/images.png" width="100%" height="100%" />
         </svg>
 
-        <p className="text-xl font-semibold">
+        <div className="text-xl font-semibold">
           Dream Tourism
           <br />
-          <p className="text-base font-normal">
+          <div className="text-base font-normal">
             Providing reliable service since 2001
-          </p>
-          <p className="text-base font-normal">
+          </div>
+          <div className="text-base font-normal">
             Copyright © 2024 - All right reserved
-          </p>
-        </p>
+          </div>
+        </div>
       </aside>
       <nav>
         <h6 className="footer-title">Services</h6>
