@@ -1,6 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser, setUser } = useContext(AuthContext);
+  const signOut = () => {
+    signOutUser()
+      .then(() => {
+        setUser(null);
+      })
+      .catch(() => {});
+  };
+  console.log(user);
   const links = (
     <>
       <li>
@@ -51,18 +62,42 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-4">
-        <Link
-          to="/login"
-          className="btn border border-black bg-transparent  text-lg  hover:bg-gray-800 hover:text-white"
-        >
-          Login
-        </Link>
-        <Link
-          to="/register"
-          className="btn border border-black bg-transparent  text-lg  hover:bg-gray-800 hover:text-white"
-        >
-          Register
-        </Link>
+        {user ? (
+          <>
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={
+                user.displayName ? user.displayName : "user name not found"
+              }
+            >
+              <div className="mr-2 size-10 rounded-full border border-black">
+                <img className="rounded-full" alt="" src={user.photoURL} />
+              </div>
+            </div>
+            <Link
+              onClick={signOut}
+              to="/"
+              className="btn border border-black bg-transparent text-lg  hover:bg-gray-800 hover:text-white"
+            >
+              Logout
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn border border-black bg-transparent  text-lg  hover:bg-gray-800 hover:text-white"
+            >
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="btn border border-black bg-transparent  text-lg  hover:bg-gray-800 hover:text-white"
+            >
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
