@@ -10,6 +10,8 @@ import Register from "./Components/Register";
 import AllTouristSpot from "./Components/AllTouristSpot";
 import AddTouristSpot from "./Components/AddTouristSpot";
 import MyList from "./Components/MyList";
+import AuthProvider from "./AuthProvider";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </AuthProvider>
   </React.StrictMode>,
 );
