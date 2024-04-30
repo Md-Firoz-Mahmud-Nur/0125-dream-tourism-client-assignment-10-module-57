@@ -6,20 +6,21 @@ import { AuthContext } from "./AuthProvider";
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
+  console.log(user, loading);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center">
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
+  }
 
   if (user) {
     return children;
-  } else {
-    if (loading) {
-      return (
-        <div className="flex justify-center">
-          <span className="loading loading-dots loading-lg"></span>
-        </div>
-      );
-    }
-
-    return <Navigate state={location.pathname} to="/login" />;
   }
+
+  return <Navigate state={location.pathname} to="/login" />;
 };
 
 PrivateRoute.propTypes = {

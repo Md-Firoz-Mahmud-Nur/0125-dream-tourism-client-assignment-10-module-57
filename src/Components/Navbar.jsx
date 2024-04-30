@@ -11,7 +11,6 @@ const Navbar = () => {
       })
       .catch(() => {});
   };
-  console.log(user);
   const links = (
     <>
       <li>
