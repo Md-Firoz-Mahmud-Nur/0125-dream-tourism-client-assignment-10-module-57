@@ -13,6 +13,7 @@ import MyList from "./Components/MyList";
 import AuthProvider from "./AuthProvider";
 import { HelmetProvider } from "react-helmet-async";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "./Components/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/touristSpot"),
       },
       {
         path: "/login",
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch("http://localhost:5000/touristSpot"),
+        loader: () => fetch("http://localhost:3000/touristSpot"),
       },
       {
         path: "/addTouristSpot",
@@ -52,6 +54,15 @@ const router = createBrowserRouter([
             <MyList></MyList>,
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/viewDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:3000/touristSpot"),
       },
     ],
   },

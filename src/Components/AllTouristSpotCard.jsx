@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const AllTouristSpotCard = ({ touristSpot }) => {
-  console.log(touristSpot);
   const {
     _id,
     spotName,
@@ -11,14 +11,13 @@ const AllTouristSpotCard = ({ touristSpot }) => {
     travelTime,
     totalVisitorsPerYear,
   } = touristSpot;
-  console.log(_id, averageCost);
   return (
-    <div className="col-span-6 md:col-span-3 lg:col-span-2">
-      <div className="card w-full bg-base-100 shadow-xl">
-        <figure>
+    <div className="col-span-6 md:col-span-3 lg:col-span-2 ">
+      <div className="card flex h-full w-full border border-black bg-base-100 shadow-xl">
+        <figure className="flex-grow">
           <img src={imageUrl} alt="" />
         </figure>
-        <div className="card-body p-6">
+        <div className="card-body flex-grow-0 p-6">
           <h2 className="card-title text-3xl">
             {spotName}
             <div className="badge badge-outline">
@@ -40,7 +39,12 @@ const AllTouristSpotCard = ({ touristSpot }) => {
             </div>
           </div>
 
-          <button className="btn btn-outline mt-3 w-full">View Details</button>
+          <Link
+            to={`/viewDetails/${_id}`}
+            className="btn btn-outline mt-3 w-full"
+          >
+            View Details
+          </Link>
         </div>
       </div>
     </div>

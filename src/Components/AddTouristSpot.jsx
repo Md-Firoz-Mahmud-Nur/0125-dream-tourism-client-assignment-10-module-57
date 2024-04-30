@@ -47,7 +47,7 @@ const AddTouristSpot = () => {
     console.log(addTouristSpotData);
 
     // send data to the server
-    fetch("http://localhost:5000/touristSpot", {
+    fetch("http://localhost:3000/touristSpot", {
       method: "POST",
       headers: {
         "content-type": "application/json",
