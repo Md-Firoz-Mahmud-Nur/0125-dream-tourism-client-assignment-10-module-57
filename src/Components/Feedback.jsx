@@ -3,7 +3,7 @@ const Feedback = () => {
     <div className="col-span-2 flex  flex-col gap-4 rounded-xl lg:col-span-1 ">
       <h1 className="text-center text-3xl font-bold">Your Valuable Feedback</h1>
       <br />
-      <div className="h-full rounded-2xl border border-black p-4">
+      <div className="flex flex-col h-full rounded-2xl border border-black p-4">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Your Name</span>
@@ -24,12 +24,12 @@ const Feedback = () => {
             className="input input-bordered"
           />
         </div>
-        <div className=" form-control">
+        <div className="grow form-control">
           <label className="label">
             <span className="label-text">Review Description</span>
           </label>
           <textarea
-            className="textarea textarea-bordered"
+            className="flex grow textarea textarea-bordered"
             placeholder="Provide Your Experience"
           ></textarea>
         </div>
