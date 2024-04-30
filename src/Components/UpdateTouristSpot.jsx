@@ -1,8 +1,57 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateTouristSpot = () => {
+  const handleUpdateTouristSpot = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const spotName = form.spotName.value;
+    const countryName = form.countryName.value;
+    const imageUrl = form.imageUrl.value;
+    const location = form.location.value;
+    const averageCost = form.averageCost.value;
+    const seasonality = form.seasonality.value;
+    const travelTime = form.travelTime.value;
+    const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
+    const shortDescription = form.shortDescription.value;
+
+    const updatedTouristSpot = {
+      spotName,
+      countryName,
+      imageUrl,
+      location,
+      averageCost,
+      seasonality,
+      travelTime,
+      totalVisitorsPerYear,
+      shortDescription,
+    };
+    console.log(updatedTouristSpot);
+    //send data to the server
+    fetch(`http://localhost:3000/touristSpot/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTouristSpot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "success!",
+            text: "Spot Updated successfully",
+            icon: "success",
+            confirmButtonText: "Done",
+          });
+        }
+      });
+  };
+
   const updateTouristSpot = useLoaderData();
   const {
+    _id,
     spotName,
     countryName,
     imageUrl,
@@ -19,7 +68,7 @@ const UpdateTouristSpot = () => {
     <div className=" container mx-auto mt-10 rounded-2xl ">
       <h2 className="text-center   text-4xl font-bold">Update Tourist Spot</h2>
 
-      <form className="mt-10">
+      <form onSubmit={handleUpdateTouristSpot} className="mt-10">
         <div className="grid grid-cols-2 gap-4">
           <div className="form-control col-span-2 w-full md:col-span-1">
             <label className="label">
