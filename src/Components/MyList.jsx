@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -28,18 +29,13 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
-
-        fetch(
-          `http://localhost:3000/myTouristSpot/${_id}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedUser),
+        fetch(`http://localhost:3000/myTouristSpot/${_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
           },
-        )
+          body: JSON.stringify(updatedUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -74,16 +70,18 @@ const MyList = () => {
 
           <tbody>
             {myEmailSpot?.map((singleMyEmailSpot) => (
-
               <tr key={singleMyEmailSpot._id} className="font-medium">
                 <td> {singleMyEmailSpot.spotName} </td>
                 <td>{singleMyEmailSpot.countryName}</td>
                 <td>{singleMyEmailSpot.averageCost} $ </td>
                 <td>{singleMyEmailSpot.travelTime} - Days</td>
                 <td className="flex flex-col gap-3 md:flex-row ">
-                  <button className=" btn btn-outline  text-xl ">Update</button>
-
-
+                  <Link
+                    className=" btn btn-outline  text-xl"
+                    to={`/touristSpot/${singleMyEmailSpot._id}`}
+                  >
+                    <button>Update</button>
+                  </Link>
 
                   <button
                     onClick={() => handleDelete(singleMyEmailSpot._id)}
