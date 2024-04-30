@@ -1,9 +1,19 @@
 const Feedback = () => {
   return (
     <div className="col-span-2 flex  flex-col gap-4 rounded-xl lg:col-span-1 ">
-      <h1 className="text-center text-3xl font-bold">Your Valuable Feedback</h1>
+      <h1
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        className="text-center text-3xl font-bold"
+      >
+        Your Valuable Feedback
+      </h1>
       <br />
-      <div className="flex flex-col h-full rounded-2xl border border-black p-4">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className="flex h-full flex-col rounded-2xl border border-black p-4"
+      >
         <div className="form-control">
           <label className="label">
             <span className="label-text">Your Name</span>
@@ -24,12 +34,12 @@ const Feedback = () => {
             className="input input-bordered"
           />
         </div>
-        <div className="grow form-control">
+        <div className="form-control grow">
           <label className="label">
             <span className="label-text">Review Description</span>
           </label>
           <textarea
-            className="flex grow textarea textarea-bordered"
+            className="textarea textarea-bordered flex grow"
             placeholder="Provide Your Experience"
           ></textarea>
         </div>

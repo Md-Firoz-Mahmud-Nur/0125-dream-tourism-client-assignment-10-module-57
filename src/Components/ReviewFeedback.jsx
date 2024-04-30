@@ -9,7 +9,7 @@ const ReviewFeedback = () => {
         data-aos-duration="1500"
         className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold "
       >
-        Give your feedback to improve our service.
+        Give your Feedback to improve our service.
         <p className="mt-2 text-lg">
           Share your valuable feedback to help us enhance your experience!
         </p>
