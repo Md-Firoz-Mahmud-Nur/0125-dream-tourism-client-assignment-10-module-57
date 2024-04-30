@@ -15,12 +15,12 @@ const ViewDetails = () => {
     imageUrl,
     location,
     spotName,
-    // seasonality,
-    // shortDescription,
-    // totalVisitorsPerYear,
-    // travelTime,
-    // userEmail,
-    // userName,
+    seasonality,
+    shortDescription,
+    totalVisitorsPerYear,
+    travelTime,
+    userEmail,
+    userName,
   } = viewDetail;
 
   console.log(_id);
@@ -37,47 +37,60 @@ const ViewDetails = () => {
         </div>
         <div className="flex-grow">
           <div className="gap-5 lg:flex">
-            <p className="  flex py-2 text-3xl font-semibold md:text-4xl md:font-bold ">
+            <p className="  flex items-center py-2 text-3xl font-semibold md:text-4xl md:font-bold ">
               {spotName}
-              <span className="mx-2 flex items-center rounded-full border border-black px-2 py-2">
+              <span className="mx-2 flex items-center rounded-full border border-black px-4 py-3">
                 <CiLocationOn /> {countryName}
               </span>
             </p>
           </div>
 
           <p className="my-1 text-xl font-bold text-[#131313CC]  ">
-            Type :<span className="  font-medium text-[#131313CC]  ">{}</span>
+            Seasonality :{" "}
+            <span className="  font-medium text-[#131313CC]  ">
+              {seasonality}
+            </span>
           </p>
 
           <h3 className=" text-xl font-bold  text-[#131313CC]  ">
-            Description :
-            <span className=" text-xl font-medium  text-[#131313CC]  ">{}</span>
+            Total Visitors Per Year :
+            <span className="pl-1 text-xl font-medium  text-[#131313CC]  ">
+              {totalVisitorsPerYear}
+            </span>
           </h3>
           <h2 className="  text-xl font-bold  text-[#131313CC] ">
-            Location :
-            <span className="  text-xl font-medium  text-[#131313CC]  ">
+            Travel Time :
+            <span className="pl-1  text-xl font-medium  text-[#131313CC]  ">
+              {travelTime}
+            </span>
+          </h2>
+          <h2 className="  text-xl font-bold  text-[#131313CC] ">
+            location :
+            <span className="pl-1  text-xl font-medium  text-[#131313CC]  ">
               {location}
             </span>
           </h2>
+          <h2 className=" flex text-xl font-bold  text-[#131313CC] ">
+            Added By :
+            <span className="flex  pl-1 text-xl font-medium text-[#131313CC]  ">
+              {userName} <div className="pl-2">({userEmail})</div>
+            </span>
+          </h2>
+          <h2
+            className="text-xl font-bold
+            "
+          >
+            Price:
+            {averageCost}
+          </h2>
           <div className=" gap-5   md:my-4 md:flex">
             <h2 className="  text-xl font-bold  text-[#131313CC] ">
-              Area :
+              shortDescription :
               <span className="  text-xl font-medium  text-[#131313CC]  ">
-                {}
+                {shortDescription}
               </span>
             </h2>
-
-            <h2
-              className="text-xl font-bold
-            "
-            >
-              Price:
-              {averageCost}
-            </h2>
           </div>
-
-          <p className="my-2 text-center text-2xl  font-bold ">Facilities</p>
-          <hr className="mb-2 border border-black" />
         </div>
       </div>
     </div>
