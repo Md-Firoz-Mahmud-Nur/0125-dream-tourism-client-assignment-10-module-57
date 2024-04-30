@@ -25,7 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/touristSpot"),
+        loader: () =>
+          fetch(
+            "https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot",
+          ),
       },
       {
         path: "/login",
@@ -38,7 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch("http://localhost:3000/touristSpot"),
+        loader: () =>
+          fetch(
+            "https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot",
+          ),
       },
       {
         path: "/addTouristSpot",
@@ -63,13 +69,18 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/touristSpot"),
+        loader: () =>
+          fetch(
+            "https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot",
+          ),
       },
       {
         path: "/touristSpot/:id",
         element: <UpdateTouristSpot></UpdateTouristSpot>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/touristSpot/${params.id}`),
+          fetch(
+            `https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot/${params.id}`,
+          ),
       },
     ],
   },

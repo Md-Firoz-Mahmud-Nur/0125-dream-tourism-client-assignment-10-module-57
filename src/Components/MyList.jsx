@@ -10,7 +10,9 @@ const MyList = () => {
 
   const [myEmailSpot, setMyEmailSpot] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/myTouristSpot/${user?.email}`)
+    fetch(
+      `https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/myTouristSpot/${user?.email}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyEmailSpot(data);
@@ -29,13 +31,16 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/myTouristSpot/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
+        fetch(
+          `https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/myTouristSpot/${_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedUser),
           },
-          body: JSON.stringify(updatedUser),
-        })
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

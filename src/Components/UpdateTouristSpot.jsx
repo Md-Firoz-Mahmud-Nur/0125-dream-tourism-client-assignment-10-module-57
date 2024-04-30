@@ -28,13 +28,16 @@ const UpdateTouristSpot = () => {
     };
     console.log(updatedTouristSpot);
     //send data to the server
-    fetch(`http://localhost:3000/touristSpot/${_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedTouristSpot),
       },
-      body: JSON.stringify(updatedTouristSpot),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
