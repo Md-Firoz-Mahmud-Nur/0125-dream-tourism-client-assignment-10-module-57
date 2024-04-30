@@ -35,19 +35,19 @@ const AddTouristSpot = () => {
       countryName,
       imageUrl,
       location,
-      shortDescription,
       averageCost,
       seasonality,
       travelTime,
+      totalVisitorsPerYear,
       userName,
       userEmail,
-      totalVisitorsPerYear,
+      shortDescription,
     };
 
     console.log(addTouristSpotData);
 
     // send data to the server
-    fetch("http://localhost:5000/addTouristSpot", {
+    fetch("http://localhost:5000/touristSpot", {
       method: "POST",
       headers: {
         "content-type": "application/json",
