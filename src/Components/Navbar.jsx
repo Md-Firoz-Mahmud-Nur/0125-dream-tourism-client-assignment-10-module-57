@@ -14,6 +14,11 @@ const Navbar = () => {
   const links = (
     <>
       <li>
+        <Link to="/" className="md:hidden">
+          Dream Tourism
+        </Link>
+      </li>
+      <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
@@ -55,7 +60,12 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Dream Tourism</a>
+        <Link
+          to="/"
+          className="btn btn-ghost hidden items-center text-xl md:flex "
+        >
+          Dream Tourism
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
