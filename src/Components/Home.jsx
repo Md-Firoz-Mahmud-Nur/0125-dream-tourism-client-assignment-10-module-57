@@ -1,8 +1,9 @@
+import BannerLandingPage from "./BannerLandingPage";
 
 const Home = () => {
   return (
     <div>
-      this is home
+      <BannerLandingPage></BannerLandingPage>
     </div>
   );
 };
