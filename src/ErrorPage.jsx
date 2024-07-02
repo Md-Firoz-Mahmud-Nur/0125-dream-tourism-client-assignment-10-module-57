@@ -12,7 +12,7 @@ const ErrorPage = () => {
       <p className="text-2xl">
         Sorry, Wrong Route Detected <br />
         <br />
-        Please go to{" "}
+        Please go to
         <Link className="btn-link" to="/">
           Home
         </Link>

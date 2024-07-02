@@ -10,7 +10,7 @@ const UsersReview = () => {
       </h1>
       <br />
       <div
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-duration="1000"
         className="rounded-2xl border border-black  p-4"
       >
@@ -23,7 +23,7 @@ const UsersReview = () => {
         </p>
       </div>
       <div
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-duration="1000"
         className="rounded-2xl border border-black  p-4"
       >
@@ -37,7 +37,7 @@ const UsersReview = () => {
         </p>
       </div>
       <div
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-duration="1000"
         className="rounded-2xl border border-black  p-4"
       >

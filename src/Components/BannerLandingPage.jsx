@@ -5,9 +5,9 @@ const BannerLandingPage = () => {
     <h1
       data-aos="fade-right"
       data-aos-duration="1500"
-      className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold "
+      className="my-5 rounded-t-lg  py-10 text-center text-2xl md:text-4xl font-semibold "
     >
-      Experience modern tourism and{" "}
+      Enjoy with {" "}
       <Typewriter
         loop
         cursor
@@ -15,7 +15,7 @@ const BannerLandingPage = () => {
         typeSpeed={70}
         deleteSpeed={50}
         delaySpeed={1000}
-        words={["hassle-free service."]}
+        words={["Dream Tourism"]}
       />
       <p className="mt-2 text-lg">
         Explore your ideal destination effortlessly with our innovative and

@@ -15,6 +15,7 @@ import { HelmetProvider } from "react-helmet-async";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "./Components/ViewDetails";
 import UpdateTouristSpot from "./Components/UpdateTouristSpot";
+import CountrySectionAllCard from "./Components/CountrySectionAllCard";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,15 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
+        loader: () =>
+          fetch(
+            "https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot",
+          ),
+      },
+      {
+        path: "/country/:name",
+        element: <CountrySectionAllCard></CountrySectionAllCard>,
+
         loader: () =>
           fetch(
             "https://0124-dream-tourism-server-assignment-10-module-57.vercel.app/touristSpot",

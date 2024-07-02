@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -69,6 +70,11 @@ const UpdateTouristSpot = () => {
   console.log();
   return (
     <div className=" container mx-auto mt-10 rounded-2xl ">
+      <Helmet>
+        <title>
+          Update Tourist Spot
+        </title>
+      </Helmet>
       <h2 className="text-center   text-4xl font-bold">Update Tourist Spot</h2>
 
       <form onSubmit={handleUpdateTouristSpot} className="mt-10">
@@ -93,14 +99,20 @@ const UpdateTouristSpot = () => {
               <span className="label-text ">Country Name</span>
             </label>
             <label className="input-group">
-              <input
-                type="text"
-                className="input input-bordered w-full"
+              <select
+                className="select select-bordered w-full"
                 name="countryName"
                 defaultValue={countryName}
-                placeholder="Enter Country Name"
                 required
-              />
+              >
+                <option value="">Select Country</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Cambodia">Cambodia</option>
+              </select>
             </label>
           </div>
           <div className="form-control col-span-2 w-full md:col-span-1">

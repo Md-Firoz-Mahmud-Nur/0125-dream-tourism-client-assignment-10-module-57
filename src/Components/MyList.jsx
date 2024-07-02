@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -20,7 +21,6 @@ const MyList = () => {
   }, [user]);
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -43,7 +43,6 @@ const MyList = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -60,29 +59,38 @@ const MyList = () => {
 
   return (
     <div className='"border-solid container mx-auto my-10 rounded-xl border border-black '>
+      <Helmet>
+        <title>My List</title>
+      </Helmet>
       <div className="overflow-x-auto    ">
-        <table className="table">
+        <table className="table text-center">
           {/* head */}
           <thead>
-            <tr className="text-2xl  ">
-              <th>Spot Name</th>
-              <th>Country Name</th>
-              <th>Cost</th>
-              <th>Time</th>
-              <th>Updated or Delete</th>
+            <tr className="border-black text-lg md:text-2xl ">
+              <th className="pl-2 pr-0 ">Spot</th>
+              <th className="pl-2 pr-0">Country</th>
+              <th className="pl-2 pr-0 text-lg">Cost</th>
+              <th className="px-2">Action</th>
             </tr>
           </thead>
 
           <tbody>
             {myEmailSpot?.map((singleMyEmailSpot) => (
-              <tr key={singleMyEmailSpot._id} className="font-medium">
-                <td> {singleMyEmailSpot.spotName} </td>
-                <td>{singleMyEmailSpot.countryName}</td>
-                <td>{singleMyEmailSpot.averageCost} $ </td>
-                <td>{singleMyEmailSpot.travelTime} - Days</td>
-                <td className="flex flex-col gap-3 md:flex-row ">
+              <tr
+                key={singleMyEmailSpot._id}
+                className="border-base-300 font-medium"
+              >
+                <td className="pl-2 pr-0 text-lg md:text-xl">
+                  {" "}
+                  {singleMyEmailSpot.spotName}{" "}
+                </td>
+                <td className=" pl-2 pr-0">{singleMyEmailSpot.countryName}</td>
+                <td className="pl-2 pr-0 text-lg">
+                  {singleMyEmailSpot.averageCost} ${" "}
+                </td>
+                <td className="flex flex-col justify-center gap-3 px-2 md:flex-row">
                   <Link
-                    className=" btn btn-outline  text-xl"
+                    className=" btn btn-outline p-1 text-base md:px-4  md:text-xl"
                     to={`/touristSpot/${singleMyEmailSpot._id}`}
                   >
                     <button>Update</button>
@@ -90,7 +98,7 @@ const MyList = () => {
 
                   <button
                     onClick={() => handleDelete(singleMyEmailSpot._id)}
-                    className="btn btn-outline  text-xl "
+                    className="btn btn-outline p-1  text-base md:px-4 md:text-xl "
                   >
                     Delete
                   </button>
